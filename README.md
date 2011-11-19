@@ -95,6 +95,28 @@ System.assertEquals(1, clonedSet.size());
 
 For more detailed examples about various other operations in Map/Set please check the Apex test classes. 
 
+## Limitations of XCollections ##
+One of the major limitation you will see with immediate effect is lack of Generics support. You can declare strongly typed collections in Apex for ex. 
+
+```java
+Set<string> aset = new Set<string>();
+Map<id, Account> accountMap = new Map<id, Account>();
+// No explicit type cast needed
+Account acc = accountMap.get('a0790000001eVbL');
+```
+
+But as Apex doesn't supports Generics or Templates for user defined classes, XSet and XMap will not be that strongly typed. Similar code in XCollections format would be as follows.
+
+```java
+XSet aset = new XSet();
+XMap  accountMap = new XMap();
+// explicit type cast needed
+Account acc = (Account)accountMap.get('a0790000001eVbL');
+```
+
+I know this is not cool, but it has to be like this until apex releases support for generics or templates. Sounds like strong candidate for IdeaExchange ? 
+
+
 # What is planned next ?? #
 Optimizing the collections for lesser space/time, plus introducing some more collections like :
 
