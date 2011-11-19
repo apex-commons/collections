@@ -29,7 +29,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	Test class for XSET, have to keep it global because of Apex limitations.
 	@author Abhinav Gupta 
 */
-global class TextXSet {
+global class TestXSet {
 
      global class Employee implements XKeyable {
          String name;
